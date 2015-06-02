@@ -2,13 +2,12 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #include <OpenGL/OpenGL.h>
-#define RESOURCE_FOLDER ""
 #elif defined _WIN32 || defined _WIN64
-#define RESOURCE_FOLDER "resources/"
 #include <string>
 #include <stdlib.h>
 #include <glut.h>
 #endif
+#define RESOURCE_FOLDER "resources/"
 
 
 #include <sstream>
