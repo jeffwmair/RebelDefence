@@ -1,5 +1,11 @@
 CC=g++
-FLAGS=-framework OpenGL -framework GLUT -framework AudioToolbox -framework CoreServices -lc -lm
+UNAME=$(shell uname)
+ifeq ($(UNAME), Darwin)
+	FLAGS=-framework OpenGL -framework GLUT -framework AudioToolbox -framework CoreServices -lc -lm
+endif
+ifeq ($(UNAME), Linux)
+	FLAGS=-lGL -lglut -lc -lm
+endif
 PROGRAM_NAME=rebeldefence
 
 all:
