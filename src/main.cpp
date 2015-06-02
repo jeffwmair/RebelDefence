@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include <glut.h>
 #endif
+#ifdef __linux__
+#include <GL/glut.h>
+#endif
 #define RESOURCE_FOLDER "resources/"
 
 

@@ -16,6 +16,10 @@
 #include <glut.h>
 #endif
 
+#ifdef __linux__
+#include <GL/glut.h>
+#endif
+
 
 #define ZOOM_INCREMENT 250
 #define CAMERA_ANGLE_CHANGE_AMOUNT 0.5

@@ -15,6 +15,9 @@
 #include <stdlib.h>
 #include <glut.h>
 #endif
+#ifdef __linux__
+#include <GL/glut.h>
+#endif
 
 #include <iostream>
 
