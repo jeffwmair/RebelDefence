@@ -58,7 +58,7 @@
 		1FA3F9B518299A0A00189361 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = "";
+			dstPath = resources;
 			dstSubfolderSpec = 7;
 			files = (
 				1F1BC7611AF8671A00B6B08C /* AtStTexture.bmp in CopyFiles */,
@@ -154,7 +154,7 @@
 		1F1BC74C1AF8670300B6B08C /* Walker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Walker.h; sourceTree = "<group>"; };
 		1F20AC8A182C8A3000AB6584 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1F20AC8C182C8A3400AB6584 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		1FA3F9B718299A0A00189361 /* cps511a03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cps511a03; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA3F9B718299A0A00189361 /* cps511a03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = cps511a03; path = RebelDefence; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA3F9F118299B1700189361 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1FA3F9F318299B2B00189361 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
