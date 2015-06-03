@@ -22,11 +22,11 @@ void playSound(char * filePath) {
 }
 
 void Sound::playCannonFire() {
-    playSound("trprsht1.wav");
+    playSound("resources/trprsht1.wav");
 }
 
 
 void Sound::playCannonFireQuiet() {
-    playSound("trprsht1_quiet.wav");
+    playSound("resources/trprsht1_quiet.wav");
 }
 
