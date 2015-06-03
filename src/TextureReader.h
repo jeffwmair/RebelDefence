@@ -9,6 +9,8 @@
 #ifndef cps511a03_TextureReader_h
 #define cps511a03_TextureReader_h
 
+#include <stdio.h>
+
 typedef unsigned char  byte;
 typedef unsigned short word;
 typedef unsigned long  dword;
