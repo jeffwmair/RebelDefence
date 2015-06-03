@@ -4,6 +4,8 @@ I made this game for a Computer Graphics course in University.  At the time I ha
 1. Command-line make
 1. XCode
 
+NOTE: I am not maintaining or extending this project any further.
+
 ## Command-line make
 
 ```shell
