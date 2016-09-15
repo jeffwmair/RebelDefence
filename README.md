@@ -8,13 +8,13 @@ NOTE: I am not maintaining or extending this project any further.
 
 ## Command-line make
 
+The following should work if you have make and g++ installed:
+
 ```shell
-# switch into the src dir of the program
-$ cd rebel_defence/src
-# just type make to run the build
-$ make
-# after building, run rebeldefence
-$ ./rebeldefence
+git clone https://github.com/jeffwmair/rebel_defence.git
+cd rebel_defence/src
+make
+./rebeldefence
 ```
 
 ## XCode
