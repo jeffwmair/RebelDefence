@@ -62,8 +62,8 @@ public:
     Part * getBody();
 
     void walk(float speed);
-    GLfloat * getPosition();
-    GLfloat * getPositionOfHead();
+    GLfloat getPosition(int index);
+    GLfloat getPositionOfHead(int index, bool rotate);
     void start();
     void resetToStartPosition();
     void setStartPosition(GLfloat x, GLfloat y, GLfloat z);

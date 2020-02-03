@@ -75,14 +75,18 @@ void Walker::resetToStartPosition() {
     setMaterial(_body);
 }
 
-GLfloat * Walker::getPosition() {
-    return _body->getTransformationById(ID_BODY_TRANSLATION)->getValues();
+GLfloat Walker::getPosition(int positionIndex) {
+    return _body->getTransformationById(ID_BODY_TRANSLATION, positionIndex);
 }
 
-GLfloat * Walker::getPositionOfHead() {
-    GLfloat * posBody = getPosition();
-    posBody[1] = posBody[1] + 250;
-    return posBody;
+GLfloat Walker::getPositionOfHead(int index, bool rotate) {
+	// todo: implement with setPosition...
+	// not sure what this did.
+ /*   GLfloat posBody = getPosition(index);
+	if (rotate) {
+		_posBody[1] = _posBody[1] + 250;
+	}*/
+	return getPosition(index);
 }
 
 void Walker::changeMaterialDuringDeath(Part * p) {
@@ -114,9 +118,9 @@ bool Walker::animateDeath() {
 //    changeMaterialDuringDeath(_body);
 
     // fall downward
-    GLfloat curX = getPosition()[0];
-    GLfloat curY = getPosition()[1];
-    GLfloat curZ = getPosition()[2];
+	GLfloat curX = getPosition(0);
+	GLfloat curY = getPosition(1);
+	GLfloat curZ = getPosition(2);
     
     if (_animationsAfterBeingHit <= WALKER_DEATH_DURATION) {
 
@@ -134,7 +138,7 @@ bool Walker::animateDeath() {
             curLegRotation = 0;
         }
         else {
-            curLegRotation = leftJoint->getTransformationById(ID_LEFTLEG_JOINT_TOP_ROT)->getValues()[0];
+            curLegRotation = leftJoint->getTransformationById(ID_LEFTLEG_JOINT_TOP_ROT, 0);
         }
     
         GLfloat newRotation = curLegRotation + (4.5f/DEATH_FALL_INVERSE_FACTOR);
@@ -174,10 +178,10 @@ void Walker::walk(float unused) {
     
     /* rotate the neck */
     Part * neck = _body->getChildren()[0];
-    GLfloat curRotation = neck->getTransformationById(ID_NECK_ROTATION)->getValues()[0];
+    GLfloat curRotation = neck->getTransformationById(ID_NECK_ROTATION, 0);
         
-    float curWalkerX = getPosition()[0];
-    float curWalkerZ = getPosition()[2];
+	float curWalkerX = getPosition(1);
+	float curWalkerZ = getPosition(2);
 
     
     if (_hitCount > 0) {
@@ -248,9 +252,9 @@ void Walker::walk(float unused) {
     float jointBRotationAmt = jointARotationAmt / 1.5;
    
     
-    GLfloat curX = getPosition()[0];
-    GLfloat curY = getPosition()[1];
-    GLfloat curZ = getPosition()[2];
+	GLfloat curX = getPosition(0);
+	GLfloat curY = getPosition(1);
+	GLfloat curZ = getPosition(2);
     
     float curBobLevel = curY - WALKER_BODY_HEIGHT;
     
@@ -280,7 +284,7 @@ void Walker::walk(float unused) {
     Part * rightJointTop = _body->getChildren()[2];
     
     
-    GLfloat curRotationLeftA = leftJointTop->getTransformationById(ID_LEFTLEG_JOINT_TOP_ROT)->getValues()[0];
+    GLfloat curRotationLeftA = leftJointTop->getTransformationById(ID_LEFTLEG_JOINT_TOP_ROT, 0);
     if (curRotationLeftA >= maxJointARotation) {
         jointARotationUp = false;
     }
@@ -302,7 +306,7 @@ void Walker::walk(float unused) {
     Part * leftJointB = leftJointTop->getChildren()[0]->getChildren()[0];
     Part * rightJointB = rightJointTop->getChildren()[0]->getChildren()[0];
     
-    GLfloat curRotationJointB = leftJointB->getTransformationById(ID_LEFTLEG_JOINT_MID_ROT)->getValues()[0];
+    GLfloat curRotationJointB = leftJointB->getTransformationById(ID_LEFTLEG_JOINT_MID_ROT, 0);
     if (curRotationJointB > maxJointBRotation) {
         jointBRotationUp = false;
     }

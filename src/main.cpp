@@ -661,8 +661,8 @@ int main(int argc, char * argv[])
     glShadeModel(GL_SMOOTH);
     glEnable(GL_DEPTH_TEST);
     
-    glEnable(GL_MULTISAMPLE);
-    glHint(GL_MULTISAMPLE_FILTER_HINT_NV, GL_NICEST);
+    //glEnable(GL_MULTISAMPLE);
+    //glHint(GL_MULTISAMPLE_FILTER_HINT_NV, GL_NICEST);
 	
 	string path = RESOURCE_FOLDER;
 	readBMPFile(&textureArray[0], (path + "Snow_01_UV_H_CM_1.bmp").c_str());
@@ -785,7 +785,7 @@ void mainGameTimer(int x) {
             allWalkersAreInactive = false;
             
             #define MAX_GAMEOVER_COUNTER 700
-            if (w->getPositionOfHead()[2] > 0 && _gameOverCounter == 0) {
+            if (w->getPositionOfHead(2, true) > 0 && _gameOverCounter == 0) {
                 setStatusBarText("You've let a walker get through.  GAME OVER");
                 for(int i = 0; i < 3; i++) light_level_during_gameover[i] = 0.5;
                 _gameOverCounter++;
@@ -827,7 +827,10 @@ void mainGameTimer(int x) {
     for(std::vector<Projectile*>::iterator itr = walkerProjectiles.begin(); itr != walkerProjectiles.end(); ++itr) {
         Projectile * p = *itr;
         if (p->fireContinued()) {
-            if (p->isColliding(cannon->getPosition())) {
+			GLfloat partPosition0 = cannon->getPosition(0);
+			GLfloat partPosition1 = cannon->getPosition(1);
+			GLfloat partPosition2 = cannon->getPosition(2);
+            if (p->isColliding(partPosition0, partPosition1, partPosition2)) {
                 
                 stringstream s;
                 s << "You've been hit!!! Your damage level is " << _damageCounter << " out of " << MAX_DAMAGE << endl;
@@ -864,7 +867,10 @@ void mainGameTimer(int x) {
             
             for(int i = 0; i < walkers.size(); i++) {
                 Walker * w = walkers[i];
-                if (!w->getIsInactive() && p->isColliding(w->getPositionOfHead())) {
+				GLfloat pos0 = w->getPositionOfHead(0, true);
+				GLfloat pos1 = w->getPositionOfHead(1, false);
+				GLfloat pos2 = w->getPositionOfHead(2, false);
+                if (!w->getIsInactive() && p->isColliding(pos0, pos1, pos2)) {
                     walkers[i]->setIsHit();
                     p->setIsFiring(false);
                     setStatusBarText("You've hit a walker!  Watch out, he's firing at you!");
@@ -878,7 +884,7 @@ void mainGameTimer(int x) {
                 pos[0] = shipX;
                 pos[1] = shipY;
                 pos[2] = shipZ;
-                if (p->isColliding(pos)) {
+                if (p->isColliding(pos[0], pos[1], pos[2])) {
                     ships[i]->setIsHit();
                     p->setIsFiring(false);
                     setStatusBarText("You've taken down a tie fighter!");
@@ -924,9 +930,9 @@ void userCannonFire() {
     cannon->recoilBegin(_cannonCam->getCamX(), _cannonCam->getCamY(), _cannonCam->getCamZ());
    
     Projectile * projectileToFire = cannonProjectiles[freeProjectileNumber];
-    float cannonPosX = cannon->getPosition()[0];
-    float cannonPosY = cannon->getPosition()[1];
-    float cannonPosZ = cannon->getPosition()[2];
+    float cannonPosX = cannon->getPosition(0);
+    float cannonPosY = cannon->getPosition(1);
+    float cannonPosZ = cannon->getPosition(2);
     projectileToFire->fireBegin(_cannonCam->getHAngle(), _cannonCam->getVAngle(), cannonPosX, cannonPosY, cannonPosZ);
     
 }

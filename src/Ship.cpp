@@ -62,13 +62,13 @@ void Ship::getPosition(GLfloat * x, GLfloat * y, GLfloat * z) {
     *z = _calculatedZPos;
 }
 
-GLfloat * Ship::getRotationHoriz() {
-    return _body->getTransformationById(ID_ROTATION_X)->getValues();
+GLfloat Ship::getRotationHoriz(int index) {
+    return _body->getTransformationById(ID_ROTATION_X, index);
 
 }
 
-GLfloat * Ship::getRotationVert() {
-    return _body->getTransformationById(ID_ROTATION_Y)->getValues();
+GLfloat Ship::getRotationVert(int index) {
+	return _body->getTransformationById(ID_ROTATION_Y, index);
 }
 
 void Ship::move() {
@@ -102,14 +102,16 @@ void Ship::move() {
     int flightCircleCurrentAngle = 0;
     
     // roll from left to right
-    float currentRoll = _body->getTransformationById(ID_ROTATION_Y)->getValues()[0];
+	//PartTransformation *pt = _body->getTransformationById(ID_ROTATION_Y);
+	//cout << pt->getValues()[0] << endl;
+	float currentRoll = _body->getTransformationById(ID_ROTATION_Y, 0);
     float newRoll = currentRoll + ((_isHit) ? rollAmount*3 : rollAmount/4);
     _body->setTransformationValueWithId(ID_ROTATION_Y, newRoll, 1, 0, 0);
     
     // bob up and down
-    float currentX = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION)->getValues()[0];  // note that this X doesnt actually reflect position!
-    float currentY = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION)->getValues()[1];
-    float currentZ = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION)->getValues()[2];  // note that this Z doesnt actually reflect position!
+    float currentX = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION, 0);  // note that this X doesnt actually reflect position!
+    float currentY = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION, 1);
+    float currentZ = _body->getTransformationById(ID_FLIGHTPATH_TRANSLATION, 2);  // note that this Z doesnt actually reflect position!
     float newHeight = currentY + ((_isHit) ? (rollAmount * 15) : (rollAmount*5));
     _body->setTransformationValueWithId(ID_FLIGHTPATH_TRANSLATION, currentX, newHeight, currentZ, 0);
     

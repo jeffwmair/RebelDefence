@@ -37,7 +37,7 @@ public:
     bool isRecoiling();
     Cannon(Mesh * bodyMesh, Mesh * sightMesh, bool hasGrooves);
     Part * getBody();
-    GLfloat * getPosition();
+    GLfloat getPosition(int index);
 
 };
 

@@ -8,8 +8,8 @@
 
 #include "Cannon.h"
 
-GLfloat * Cannon::getPosition() {
-    return _body->getTransformationById(ID_CANNON_TRANS)->getValues();
+GLfloat Cannon::getPosition(int index) {
+    return _body->getTransformationById(ID_CANNON_TRANS, index);
 }
 
 void Cannon::addGrooves(Mesh * mesh) {
@@ -61,9 +61,9 @@ void Cannon::recoilContinue() {
         return;
     }
     
-    float curX = getPosition()[0];
-    float curY = getPosition()[1];
-    float curZ = getPosition()[2];
+    float curX = getPosition(0);
+    float curY = getPosition(1);
+    float curZ = getPosition(2);
     
     
     float changeAmt = RECOIL_RATE_BACK;

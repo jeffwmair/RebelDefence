@@ -71,6 +71,12 @@
     <ClInclude Include="..\src\Sound.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\MeshLoaderJwm.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MeshLoaderObj.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Camera.cpp">
@@ -124,5 +130,82 @@
     <ClCompile Include="..\src\SoundWin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MeshLoaderJwm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\src\resources\AtStTexture.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\resources\AtStTextureTemplate.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\resources\DeathStarTexture.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\resources\nature_bark_0007_01_s.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\resources\Snow_01_UV_H_CM_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\resources\TieFighterTexture.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\resources\AtStTextureTemplate.xcf">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\src\resources\CannonBody.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\CannonSight.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Cube.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\CubeB.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Cylinder.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Plane.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Projectile-Blaster.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\SculptObject.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\ShipWing.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\ShipWingConnector.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Sphereish.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\Star.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\src\resources\TreeTop.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\src\resources\trprsht1.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="..\src\resources\trprsht1_quiet.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

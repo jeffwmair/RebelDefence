@@ -29,8 +29,8 @@ private:
     Part * _body;
     Projectile * _projectile;
     
-    GLfloat * getRotationHoriz();
-    GLfloat * getRotationVert();
+    GLfloat getRotationHoriz(int index);
+    GLfloat getRotationVert(int index);
     
     float getRandFloat();
     float getRandFloat(float min, float max);

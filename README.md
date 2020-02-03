@@ -1,12 +1,12 @@
 # Rebel Defence
-I made this game for a Computer Graphics course in University.  At the time I had it working in Windows and OSX, but at the moment the Visual Studio project seems to be broken (and I don't have the interest in fixing for now).  So, for now I can only verify that it works in Mac OSX.  There are two ways to run it:
 
-1. Command-line make
-1. XCode
+## UPDATE Feb 2020
 
-NOTE: I am not maintaining or extending this project any further.
+Working in Visual Studio 2019.
 
-## Command-line make
+If you get an error about glut32.dll missing, copy it from RebelDefence_WIN\glut-3.7.6-bin into c:\Windows\SysWOW64.
+
+## Command-line make (not recently tested)
 
 The following should work if you have make and g++ installed:
 
@@ -17,11 +17,10 @@ make
 ./rebeldefence
 ```
 
-## XCode
+## Gameplay
 
-Running in XCode should be more or less self-explanatory.  Open the Xcode project, build, run.
+Gameplay is straight-forward.  Use the mouse to point the cannon, click (or spacebar) to fire.  Kill the AT-ST's before they
+can walk past you (the cannon).  Shoot down the tie fighters too.  Though they don't actually shoot at you.
 
-## Pics
-A couple screenshots.
-![](/documentation/RebelDefence1.png)
-![](/documentation/RebelDefence2.png)
+![](/documentation/rebel-defence-gameplay.gif)
+

@@ -29,14 +29,14 @@ Projectile::Projectile(bool fast, Mesh * bodyMesh, float scale) {
 
 Part * Projectile::getPart() { return _body; }
 
-bool Projectile::isColliding(GLfloat * partPosition) {
+bool Projectile::isColliding(GLfloat partPosition0, GLfloat partPosition1, GLfloat partPosition2) {
     
-    GLfloat x = partPosition[0];
-    GLfloat y = partPosition[1];
-    GLfloat z = partPosition[2];
-    GLfloat px = getPosition()[0];
-    GLfloat py = getPosition()[1];
-    GLfloat pz = getPosition()[2];
+    GLfloat x = partPosition0;
+    GLfloat y = partPosition1;
+    GLfloat z = partPosition2;
+	GLfloat px = getPosition(0);
+	GLfloat py = getPosition(1);
+	GLfloat pz = getPosition(2);
     
 #define COLLISION_RANGE 150
     
@@ -58,15 +58,15 @@ void Projectile::fireBegin(GLfloat angleHoriz, GLfloat angleVert, float startX, 
     _body->setTransformationValueWithId(ID_ROTATION_X, 180+angleHoriz, 0.0, 1.0, 0.0);
     _body->setTransformationValueWithId(ID_TRANSLATION, startX, startY, startZ, 0);
     
-    _angleAtTimeOfFiring[0] = _body->getTransformationById(ID_ROTATION_X)->getValues()[0];
-    _angleAtTimeOfFiring[1] = _body->getTransformationById(ID_ROTATION_Y)->getValues()[0];
+    _angleAtTimeOfFiring[0] = _body->getTransformationById(ID_ROTATION_X, 0);
+	_angleAtTimeOfFiring[1] = _body->getTransformationById(ID_ROTATION_Y, 0);
     // first rotation is about Y; first element is angle in degrees
     // second rotation is about X; first element is angle in degrees
     
     // save the home position
-    _homePosition[0] = getPosition()[0];
-    _homePosition[1] = getPosition()[1];
-    _homePosition[2] = getPosition()[2];
+	_homePosition[0] = getPosition(0);
+	_homePosition[1] = getPosition(1);
+	_homePosition[2] = getPosition(2);
 }
 
 
@@ -78,9 +78,9 @@ bool Projectile::fireContinued() {
        
     _distanceFired += _speed;
     
-    GLfloat oldX = getPosition()[0];
-    GLfloat oldY = getPosition()[1];
-    GLfloat oldZ = getPosition()[2];
+	GLfloat oldX = getPosition(0);
+	GLfloat oldY = getPosition(1);
+	GLfloat oldZ = getPosition(2);
     
     float angleAboutYRad = PI * (_angleAtTimeOfFiring[0]) / 180.0;
     float angleAboutXRad = PI * (_angleAtTimeOfFiring[1]) / 180.0;
@@ -106,8 +106,8 @@ void Projectile::finishFiring() {
     _body->setTransformationValueWithId(ID_TRANSLATION, _homePosition[0], _homePosition[1], _homePosition[2], 0);
 }
 
-GLfloat * Projectile::getPosition() {
-    return _body->getTransformationById(ID_TRANSLATION)->getValues();
+GLfloat Projectile::getPosition(int index) {
+	return _body->getTransformationById(ID_TRANSLATION, index);
 }
 
 void Projectile::setIsFiring(bool isFiring) {

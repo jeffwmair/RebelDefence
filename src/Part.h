@@ -41,7 +41,7 @@ public:
     bool isVisible;
     
     std::vector<PartTransformation> Transformations;
-    PartTransformation * getTransformationById(int id);
+    GLfloat  getTransformationById(int id, int index);
     void setTransformationValueWithId(int id, GLfloat val0, GLfloat val1, GLfloat val2, GLfloat val3);
     
     void addRotation(GLfloat angle, GLfloat xvec, GLfloat yvec, GLfloat zvec);

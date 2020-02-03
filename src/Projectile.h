@@ -36,11 +36,11 @@ public:
     void fireBegin(GLfloat angleHoriz, GLfloat angleVert, float startX, float startY, float startZ);
     void setIsFiring(bool isFiring);
     
-    bool isColliding(GLfloat * partPosition);
+    bool isColliding(GLfloat partPosition0, GLfloat partPosition1, GLfloat partPosition2);
     bool fireContinued();
     bool isFiring();
 
-    GLfloat * getPosition();
+    GLfloat  getPosition(int index);
     
 };
 

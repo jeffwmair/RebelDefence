@@ -62,11 +62,11 @@ Part * Part::getChildById(int id) {
     return p;
 }
 
-PartTransformation * Part::getTransformationById(int id) {
+GLfloat Part::getTransformationById(int id, int index) {
     for (int i = 0; i < Transformations.size(); i++) {
         PartTransformation pt = Transformations[i];
         if (pt.getId() == id) {
-            return &pt;
+            return pt.getValues()[index];
         }
     }
 }

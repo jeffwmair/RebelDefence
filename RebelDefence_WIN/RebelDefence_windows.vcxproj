@@ -15,6 +15,8 @@
     <ClInclude Include="..\src\Cannon.h" />
     <ClInclude Include="..\src\math3d.h" />
     <ClInclude Include="..\src\Mesh.h" />
+    <ClInclude Include="..\src\MeshLoaderJwm.h" />
+    <ClInclude Include="..\src\MeshLoaderObj.h" />
     <ClInclude Include="..\src\MyMath.h" />
     <ClInclude Include="..\src\Part.h" />
     <ClInclude Include="..\src\PartTransformation.h" />
@@ -36,6 +38,7 @@
     <ClCompile Include="..\src\Cannon.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Mesh.cpp" />
+    <ClCompile Include="..\src\MeshLoaderJwm.cpp" />
     <ClCompile Include="..\src\Part.cpp" />
     <ClCompile Include="..\src\PartTransformation.cpp" />
     <ClCompile Include="..\src\Projectile.cpp" />
@@ -50,6 +53,38 @@
     <ClCompile Include="..\src\VertexQuad.cpp" />
     <ClCompile Include="..\src\Walker.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\src\resources\AtStTexture.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="..\src\resources\AtStTextureTemplate.bmp" />
+    <Image Include="..\src\resources\DeathStarTexture.bmp" />
+    <Image Include="..\src\resources\nature_bark_0007_01_s.bmp" />
+    <Image Include="..\src\resources\Snow_01_UV_H_CM_1.bmp" />
+    <Image Include="..\src\resources\TieFighterTexture.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\resources\AtStTextureTemplate.xcf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\src\resources\CannonBody.txt" />
+    <Text Include="..\src\resources\CannonSight.txt" />
+    <Text Include="..\src\resources\Cube.txt" />
+    <Text Include="..\src\resources\CubeB.txt" />
+    <Text Include="..\src\resources\Cylinder.txt" />
+    <Text Include="..\src\resources\Plane.txt" />
+    <Text Include="..\src\resources\Projectile-Blaster.txt" />
+    <Text Include="..\src\resources\SculptObject.txt" />
+    <Text Include="..\src\resources\ShipWing.txt" />
+    <Text Include="..\src\resources\ShipWingConnector.txt" />
+    <Text Include="..\src\resources\Sphereish.txt" />
+    <Text Include="..\src\resources\Star.txt" />
+    <Text Include="..\src\resources\TreeTop.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\src\resources\trprsht1.wav" />
+    <Media Include="..\src\resources\trprsht1_quiet.wav" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9AAB4E65-63CA-4E04-99CA-29A09D433883}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -60,12 +95,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
